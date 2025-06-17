@@ -43,6 +43,7 @@ namespace AssetStudio
             Games.Add(index++, new Game(GameType.GirlsFrontline));
             Games.Add(index++, new Game(GameType.Reverse1999));
             Games.Add(index++, new Game(GameType.ArknightsEndfield));
+            Games.Add(index++, new Game(GameType.WangYue));
             Games.Add(index++, new Game(GameType.JJKPhantomParade));
             Games.Add(index++, new Game(GameType.MuvLuvDimensions));
             Games.Add(index++, new Game(GameType.PartyAnimals));
@@ -171,6 +172,7 @@ namespace AssetStudio
         SchoolGirlStrikers,
         ExAstris,
         PerpetualNovelty,
+        WangYue,
     }
 
     public static class GameTypes
@@ -194,6 +196,7 @@ namespace AssetStudio
         public static bool IsOPFP(this GameType type) => type == GameType.OPFP;
         public static bool IsNetEase(this GameType type) => type == GameType.NetEase;
         public static bool IsArknightsEndfield(this GameType type) => type == GameType.ArknightsEndfield;
+        public static bool IsWangYue(this GameType type) => type == GameType.WangYue;
         public static bool IsLoveAndDeepspace(this GameType type) => type == GameType.LoveAndDeepspace;
         public static bool IsExAstris(this GameType type) => type == GameType.ExAstris;
         public static bool IsPerpetualNovelty(this GameType type) => type == GameType.PerpetualNovelty;
@@ -223,7 +226,7 @@ namespace AssetStudio
 
         public static bool IsBlockFile(this GameType type) => type switch
         {
-            GameType.BH3 or GameType.BH3Pre or GameType.SR or GameType.GI_Pack or GameType.TOT or GameType.ArknightsEndfield => true,
+            GameType.BH3 or GameType.BH3Pre or GameType.SR or GameType.GI_Pack or GameType.TOT or GameType.WangYue or GameType.ArknightsEndfield => true,
             _ => false,
         };
 

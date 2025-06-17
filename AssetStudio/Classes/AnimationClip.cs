@@ -1148,7 +1148,7 @@ namespace AssetStudio
                 m_nEulerCurves = reader.ReadUInt32();
                 m_nScaleCurves = reader.ReadUInt32();
             }
-            else if (reader.Game.Type.IsExAstris())
+            else if (reader.Game.Type.IsExAstris() || reader.Game.Type.IsWangYue())
             {
                 m_nPositionCurves = reader.ReadUInt32();
                 m_nRotationCurves = reader.ReadUInt32();
@@ -1316,7 +1316,7 @@ namespace AssetStudio
         {
             var version = reader.version;
             m_StreamedClip = new StreamedClip(reader);
-            if (reader.Game.Type.IsArknightsEndfield() || reader.Game.Type.IsExAstris())
+            if (reader.Game.Type.IsArknightsEndfield() || reader.Game.Type.IsWangYue() || reader.Game.Type.IsExAstris())
             {
                 m_DenseClip = new ACLDenseClip(reader);
             }
@@ -1931,7 +1931,7 @@ namespace AssetStudio
 
             m_SampleRate = reader.ReadSingle();
             m_WrapMode = reader.ReadInt32();
-            if (reader.Game.Type.IsArknightsEndfield())
+            if (reader.Game.Type.IsArknightsEndfield() || reader.Game.Type.IsWangYue())
             {
                 var m_aclType = reader.ReadInt32();
             }

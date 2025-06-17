@@ -628,6 +628,10 @@ namespace AssetStudio
                                 {
                                     FairGuardUtils.Decrypt(compressedBytesSpan);
                                 }
+                                if (Game.Type.IsWangYue() && i == 0 && compressedBytesSpan[..32].Count((byte)0xa6) > 5)
+                                {
+                                    FairGuardUtils.Decrypt(compressedBytesSpan);
+                                }
                                 if (Game.Type.IsOPFP())
                                 {
                                     OPFPUtils.Decrypt(compressedBytesSpan, reader.FullPath);
@@ -646,7 +650,7 @@ namespace AssetStudio
                             }
                             break;
                         }
-                    case CompressionType.Lz4Inv when Game.Type.IsArknightsEndfield():
+                    case CompressionType.Lz4Inv when (Game.Type.IsArknightsEndfield() || Game.Type.IsWangYue()):
                         {
                             var compressedSize = (int)blockInfo.compressedSize;
                             var uncompressedSize = (int)blockInfo.uncompressedSize;
