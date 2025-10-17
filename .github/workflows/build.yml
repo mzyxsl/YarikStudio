@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-      - uses: microsoft/setup-msbuild@v1.1
+      - uses: microsoft/setup-msbuild@v2
 
       - name: Nuget Restore
         run: nuget restore
